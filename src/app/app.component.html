@@ -305,22 +305,30 @@
 <!-- Toolbar -->
 
 <nav>
-  <img
+  <a routerLink= "/home" routerLinkActive="active">
+  <img id="icon"
     width="40"
     alt="Angular Logo"
     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
-  />
-  <ul>
-    <li>
-      Añadir Entrada
+  /></a>
+  <ul *ngIf="auth.userData">
+    <li><a routerLink="/home" routerLinkActive="active" >Inicio</a></li>
+    <li><a routerLink="/contact" routerLinkActive="active" >Ayuda/Contacto</a></li>
+    <li><a routerLink="/cocktail" routerLinkActive="active">Añadir Entrada</a></li>
+    <li><span>{{auth.userData.name}} {{auth.userData.lastNames}}</span>
+      <button (click)="logOut()">
+      <img src="../assets/img/kisspng-computer-icons-button-power-symbol-clip-art-on-off-button-5b0aac0bf36ca9.4350623715274260599971.png" alt="Power icons created by Freepik - Flaticon">
+      </button>
     </li>
-    <li>
-      Ayuda/Contacto
-    </li>
-    <li>
-      Login/Registro
-    </li>
+  </ul>
+
+  <ul *ngIf="!auth.userData">
+    <li><a routerLink="/home" routerLinkActive="active" >Inicio</a></li>
+    <li><a routerLink="/contact" routerLinkActive="active" >Ayuda/Contacto</a></li>
+    <li><a routerLink="/authentication" routerLinkActive="active" >Login/Registro</a></li>
   </ul>
 </nav>
   
 <router-outlet></router-outlet>
+<simple-notifications></simple-notifications>
+<ngx-spinner bdColor = "rgba(189, 195, 199, 1)" size = "large" color = "#ffa404" type = "pacman" [fullScreen] = "true"><p style="color: black; font-size: 30px;" > Refrescando... </p></ngx-spinner>

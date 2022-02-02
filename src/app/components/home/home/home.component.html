@@ -1,0 +1,16 @@
+<div><input type="text" id="buscador" [(ngModel)]="searchedText" placeholder="Buscador de cócteles"/> 
+    <button (click)='search()'><img id=lupa src="../../../../assets/img/lupa.png" alt=""></button></div>
+<div id = "container">
+    <div id="contenedorNoCoctel" *ngIf="arrayCocteles.length==0 && !loading">Parece que no queda del cóctel que buscas<img src="../../../../assets/img/descarga.png" alt=""></div>
+    <div class="card" *ngFor="let item of arrayCocteles">
+    <img src="{{item?.data()?.imageUrl}}" alt="">
+    <div class="cardPs">
+    <p><b>Título:</b> {{item.data().title}}</p>
+    <p><b>Descripción:</b> {{item.data().description}}</p>
+        <div *ngIf="item?.data()?.email == authenticationservice.userData?.email" id="cardButton">
+            <button (click)="edit(item.id)" id="editar">Editar</button>
+            <button (click)="eliminar(item.id)" id="eliminar">Eliminar</button>
+        </div>
+</div>
+</div>
+</div>

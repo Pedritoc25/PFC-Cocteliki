@@ -3,16 +3,49 @@ nav {
     display: flex;
     justify-content: space-between;
     padding-right: 10px;
+    height: 50px;
     
 }
 
 ul {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 700px;
     color: white;
+    
 }
 
 li {
+    display: flex;
+    align-items: center;
     list-style: none
 }
+
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+}
+
+img{
+    width: 25px;
+    height: 25px;
+}
+
+#icon{
+    height: 100%;
+    width: 50px;
+}
+
+a:active{
+    color: black !important;
+}
+a:visited{
+    color: white !important;
+}
+

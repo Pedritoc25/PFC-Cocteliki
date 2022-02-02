@@ -1,0 +1,8 @@
+<img src="{{image}}" alt="">
+<input type="file" accept=".jpg, .png, .jpeg" (change)="cargarImg($event)">
+<input placeholder="Nombre del Cóctel" type="text" [(ngModel)]="nombreCoctel">
+<textarea placeholder="Descripción" [(ngModel)]="descripcion"></textarea>
+<div>
+    <button (click)="this.toHome()">Cancelar</button>
+    <button (click)="saveCocktail()">Confirmar</button>
+</div>

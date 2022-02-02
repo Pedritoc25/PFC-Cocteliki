@@ -1,0 +1,16 @@
+<div id="container" *ngIf="status === 'register'"><p>REGISTRO</p>
+<div class="input-container"><label>Correo <input type="text" id="correo" name="correo" [(ngModel)]="correo"/></label></div>
+<div class="input-container"><label>Nombre <input type="text" id="nombre" name="nombre" [(ngModel)]="nombre"/></label></div>
+<div class="input-container"><label>Apellidos <input type="text" id="apellidos" name="appelidos" [(ngModel)]="apellidos" /></label></div>
+<div class="input-container"><label>Password <input type="password" id="password" name="password" [(ngModel)]="password"/></label></div>
+<div class="input-container"><label>Repite Password <input type="password" id="password2" name="password2" [(ngModel)]="password2" /></label></div>
+<div  class="input-container2"><button class="orangeButton" type="button" (click)="toggleStatus('login')" >LOGIN</button>
+    <button class="orangeButton" type="button" (click)="register()">OK</button></div>
+</div>
+<div id="container" *ngIf="status === 'login'"><p>LOGIN</p>
+    <div class="input-container"><label>Correo <input type="text" id="correo" name="correo" [(ngModel)]="correo"/></label></div>
+    <div class="input-container"><label>Password <input type="password" id="password" name="password" [(ngModel)]="password"/></label></div>
+    <div class="input-container2 loginButtons" ><button class="orangeButton" type="button" (click)="toggleStatus('register')">REGISTRO</button>
+        <button class="orangeButton" type="button" (click)="login()">OK</button></div>
+    </div>
+    

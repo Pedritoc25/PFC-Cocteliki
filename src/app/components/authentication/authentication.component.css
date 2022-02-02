@@ -1,0 +1,43 @@
+
+:host{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+}
+.input-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 10px;
+    
+}
+.input-container2{
+  margin-right: 20px;
+    
+}
+
+button{
+    margin-right: 20px;
+}
+#container{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+p{
+    margin-right: 65px;
+}
+
+.orangeButton{
+    color: white;
+    background-color: orange;
+}
+
+.loginButtons{
+    margin-left: 30px;
+}
