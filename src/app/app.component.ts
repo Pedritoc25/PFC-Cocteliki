@@ -4,6 +4,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthenticationService } from './services/authentication.service';
 import { Firestore } from './services/firestore.service';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

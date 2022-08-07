@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,9 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { CreateEditCocktailComponent } from './components/create-edit-cocktail/create-edit-cocktail.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { ConfirmationDialog} from './components/confirmation-dialog/confirmation-dialog.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +36,9 @@ import { ContactComponent } from './components/contact/contact.component';
     FormsModule,
     SimpleNotificationsModule.forRoot(),
     BrowserAnimationsModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    NgbModule,
+    MatDialogModule
     ],
   providers: [],
   bootstrap: [AppComponent]

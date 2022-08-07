@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotificationsService } from 'angular2-notifications';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Firestore } from 'src/app/services/firestore.service';
+import { ConfirmationDialog } from '../../confirmation-dialog/confirmation-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-home',
@@ -11,33 +13,44 @@ import { Firestore } from 'src/app/services/firestore.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  
+ 
   arrayCocteles: any[]
   deleting:boolean
   loading:boolean
+  dialogRef: any
+
 
   public searchedText:string;
   constructor(private spinner: NgxSpinnerService, private firestore: Firestore, public authenticationservice:AuthenticationService
-    ,private notificacionService: NotificationsService, private _router: Router) {
+    ,private notificacionService: NotificationsService, private _router: Router, public dialog: MatDialog) {
     this.searchedText = ""
     this.arrayCocteles = []
     this.deleting= false
     this.loading= false
+    this.dialogRef = null;
    }
 
   ngOnInit(): void {
     this.loading=true
     this.spinner.show()
-   this.getcocktails();
+    this.getcocktails();
   }
 
   public search():void{
   this.spinner.show()
-  this.getcocktails()
+  this.getcocktails() 
   }
 
   public eliminar(id:string):void{
-    this.spinner.show()
+    this.dialogRef = this.dialog.open(ConfirmationDialog, {
+      disableClose: false
+    });
+
+    this.dialogRef.afterClosed().subscribe((result:any) => {
+      if(result) {
+        // do confirmation actions
+        this.spinner.show()
     this.firestore.deleteCocktail(id).then(res => {
       console.log("Cóctel eliminado con éxito en firestore!")
       console.log(res)
@@ -65,6 +78,11 @@ export class HomeComponent implements OnInit {
         }
       )
     })
+      }
+      this.dialogRef = null ;
+    });
+    
+    
   }
 
 public edit(id:string):void{

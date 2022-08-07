@@ -59,7 +59,7 @@ export class Firestore {
         )
       })
     }
-  //Obtiene un gato
+  //Obtiene cocktail por id
   public getCocktailByID(documentId: string) {
     return this.firestore.collection('cocktails').doc(documentId).get();
   }
@@ -69,12 +69,12 @@ export class Firestore {
     return this.firestore.collection('users', ref => ref.where('email', '==', email)).get();
   }
 
-  //Obtiene todos los gatos
+  //Obtiene todos los cockteles
   public getCocktails() {
        return this.firestore.collection('cocktails').get()
   }
   
-  //Actualiza un gato
+  //Actualiza un coctel
   public updateCocktail(documentId: string, title: string, description: string, email: string | undefined, imageUrl: string) {
     const coctel ={
       title, description, email, imageUrl
